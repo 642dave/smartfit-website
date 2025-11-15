@@ -1,0 +1,417 @@
+/* Reset pár základních věcí pro konzistentní vzhled */
+* {
+    box-sizing: border-box;          /* šířky se počítají včetně paddingu */
+    margin: 0;
+    padding: 0;
+}
+
+/* Celé tělo stránky */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f5f7fb;             /* světle šedé pozadí */
+    color: #222;                     /* tmavý text */
+    line-height: 1.6;                /* příjemné řádkování textu */
+}
+
+/* HLAVIČKA */
+.site-header {
+    display: flex;                   /* vedle sebe logo + menu */
+    justify-content: space-between;  /* logo vlevo, menu vpravo */
+    align-items: center;
+    padding: 16px 32px;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;                /* hlavička zůstává nahoře při scrollu */
+    top: 0;
+    z-index: 10;
+}
+
+/* Logo */
+.logo span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+/* Navigace */
+.main-nav a {
+    margin-left: 16px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover {
+    color: #111;
+    border-bottom-color: #111;
+}
+
+/* Aktivní položka menu */
+.main-nav a.active {
+    color: #111;
+    border-bottom-color: #111;
+}
+
+/* HERO SEKCE – hlavní panel na úvodní stránce */
+.hero-section {
+    min-height: calc(100vh - 80px);  /* skoro celá výška okna */
+    display: grid;                   /* použijeme Grid – 2 sloupce */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 10vw;
+}
+
+/* Textová část hero sekce */
+.hero-text h1 {
+    font-size: 2.6rem;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+    max-width: 480px;
+}
+
+/* Primární tlačítko */
+.btn-primary {
+    display: inline-block;
+    background: #111827;             /* tmavě modro-černá */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 999px;            /* kulaté "pilulkové" tlačítko */
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn-primary:hover {
+    background: #020617;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.25);
+}
+
+/* Placeholder pro budoucí obrázek hodinek */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.watch-placeholder {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 4px dashed #9ca3af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6b7280;
+    text-align: center;
+    padding: 20px;
+    background: #eef2ff;
+}
+
+/* Patička */
+.site-footer {
+    text-align: center;
+    padding: 16px;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* Obecné nastavení pro podstránky */
+.page {
+    padding: 40px 10vw 60px;
+}
+
+/* Úvodní blok na podstránkách */
+.page-intro {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.page-intro h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.page-intro p {
+    color: #4b5563;
+}
+
+/* GRID s funkcemi hodinek */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Karta jedné funkce */
+.feature-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 20px 18px;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.feature-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+    color: #4b5563;
+}
+
+.feature-card ul {
+    list-style: disc;
+    padding-left: 18px;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.feature-card li + li {
+    margin-top: 4px;
+}
+
+/* Jednoduchá responzivita – na mobilu jeden sloupec */
+@media (max-width: 768px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 1;
+    }
+
+    .hero-image {
+        order: 0;
+        margin-bottom: 20px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* PRICING STRÁNKA */
+.page-pricing {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* GRID s cenovými kartami */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Jedna cenová karta */
+.pricing-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px 22px 22px;
+    box-shadow: 0 18px 40px rgba(15,23,42,0.10);
+    border: 1px solid #e5e7eb;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.pricing-subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 16px;
+}
+
+/* Cena */
+.pricing-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.pricing-note {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9ca3af;
+    margin-top: 2px;
+}
+
+/* Výčet vlastností v kartě */
+.pricing-features {
+    list-style: none;
+    margin: 14px 0 18px;
+    padding: 0;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+.pricing-features li + li {
+    margin-top: 4px;
+}
+
+/* Badge nahoře na kartě */
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+}
+
+.badge-popular {
+    background: #f97316;
+    color: white;
+}
+
+/* Blokové tlačítko v kartě */
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Sekundární tlačítko */
+.btn-secondary {
+    display: inline-block;
+    background: #e5e7eb;
+    color: #111827;
+    padding: 12px 24px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.btn-secondary:hover {
+    background: #111827;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(15,23,42,0.25);
+}
+
+/* Responzivita – na mobilu 1 sloupec */
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-pricing {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+
+/* KONTAKT STRÁNKA */
+.page-contact {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* Layout: vlevo info, vpravo formulář */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 32px;
+    align-items: flex-start;
+}
+
+.contact-info h2,
+.contact-form-wrapper h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin-bottom: 8px;
+    color: #4b5563;
+}
+
+/* Formulář */
+.contact-form-wrapper {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px 20px 22px;
+    box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 1px #11182720;
+}
+
+/* Stavová zpráva pod formulářem */
+.contact-status {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+.contact-status.success {
+    color: #16a34a;
+}
+
+.contact-status.error {
+    color: #dc2626;
+}
+
+/* Responzivita kontaktu */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-contact {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+

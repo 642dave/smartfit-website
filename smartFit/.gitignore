@@ -1,0 +1,12 @@
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+
+# VS Code settings
+.vscode/
