@@ -21,6 +21,10 @@
             <a href="pricing.html" class="active">Cena</a>
             <a href="contact.html">Kontakt</a>
         </nav>
+
+        <button id="themeToggle" class="theme-toggle-btn" type="button">
+            🌙 Tmavý režim
+        </button>
     </header>
 
     <!-- HLAVNÍ OBSAH -->
@@ -53,6 +57,15 @@
                     <li>Výdrž baterie až 7 dní</li>
                 </ul>
 
+                <button 
+                    type="button" 
+                    class="btn-secondary btn-block select-plan"
+                    data-plan-name="SmartFit One"
+                    data-plan-price="2 490 Kč"
+                >
+                    Vybrat tuto variantu
+                </button>
+
                 <a href="contact.html" class="btn-primary btn-block">
                     Chci nezávaznou nabídku
                 </a>
@@ -76,11 +89,26 @@
                     <li>Prioritní technická podpora</li>
                 </ul>
 
+                <button 
+                    type="button" 
+                    class="btn-secondary btn-block select-plan"
+                    data-plan-name="SmartFit One Plus"
+                    data-plan-price="2 990 Kč"
+                >
+                    Vybrat tuto variantu
+                </button>
+
                 <a href="contact.html" class="btn-secondary btn-block">
                     Mám zájem o verzi Plus
                 </a>
             </article>
         </section>
+
+        <section class="pricing-summary">
+            <h2>Tvá aktuální volba</h2>
+            <p id="selectedPlan">Zatím nemáš vybranou žádnou variantu.</p>
+        </section>
+
     </main>
 
     <footer class="site-footer">
