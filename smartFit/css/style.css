@@ -59,8 +59,8 @@ body {
 .hero-section {
     min-height: calc(100vh - 80px);  /* skoro celá výška okna */
     display: grid;                   /* použijeme Grid – 2 sloupce */
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
     padding: 40px 10vw;
 }
@@ -414,4 +414,286 @@ body {
         padding-right: 5vw;
     }
 }
+
+/* Shrnutí vybrané varianty */
+.pricing-summary {
+    margin-top: 32px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.pricing-summary h2 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.pricing-summary p {
+    color: #374151;
+}
+
+/* Zvýraznění vybrané cenové karty */
+.pricing-card.selected-plan {
+    border-color: #111827;
+    box-shadow: 0 20px 45px rgba(15,23,42,0.20);
+}
+
+/* Tlačítko pro přepínání režimu */
+.theme-toggle-btn {
+    margin-left: 16px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #111827;
+}
+
+.theme-toggle-btn:hover {
+    background: #e5e7eb;
+}
+
+/* === DARK THEME === */
+
+.dark-theme body {
+    background: #020617;          /* skoro černá / hodně tmavá modrá */
+    color: #e5e7eb;
+}
+
+.dark-theme .site-header {
+    background: #020617;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    border-bottom: 1px solid #111827;
+}
+
+.dark-theme .logo span,
+.dark-theme .main-nav a {
+    color: #e5e7eb;
+}
+
+.dark-theme .main-nav a.active,
+.dark-theme .main-nav a:hover {
+    border-bottom-color: #e5e7eb;
+}
+
+.dark-theme .site-footer {
+    background: #020617;
+    color: #9ca3af;
+    border-top: 1px solid #111827;
+}
+
+/* Karty a boxy v dark módu */
+.dark-theme .feature-card,
+.dark-theme .pricing-card,
+.dark-theme .contact-form-wrapper,
+.dark-theme .pricing-summary,
+.dark-theme .page-intro,
+.dark-theme .watch-placeholder {
+    background: #020617;
+    border-color: #111827;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.7);
+}
+
+/* Texty v kartách */
+.dark-theme .feature-card p,
+.dark-theme .feature-card li,
+.dark-theme .pricing-subtitle,
+.dark-theme .pricing-features li,
+.dark-theme .contact-info p,
+.dark-theme .page-intro p {
+    color: #d1d5db;
+}
+
+/* Tlačítka v dark módu */
+.dark-theme .btn-primary {
+    background: #e5e7eb;
+    color: #020617;
+}
+
+.dark-theme .btn-primary:hover {
+    background: #f9fafb;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.6);
+}
+
+.dark-theme .btn-secondary {
+    background: #111827;
+    color: #e5e7eb;
+}
+
+.dark-theme .btn-secondary:hover {
+    background: #e5e7eb;
+    color: #020617;
+}
+
+/* Tlačítko přepínače v dark módu */
+.dark-theme .theme-toggle-btn {
+    background: #111827;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+.dark-theme .theme-toggle-btn:hover {
+    background: #020617;
+}
+
+/* Inputy v dark módu */
+.dark-theme .form-group input,
+.dark-theme .form-group textarea {
+    background: #020617;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+.dark-theme .form-group input::placeholder,
+.dark-theme .form-group textarea::placeholder {
+    color: #6b7280;
+}
+
+/* Obrázek hodinek v hero sekci */
+.watch-image {
+    max-width: 360px;
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(15,23,42,0.35);
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .watch-image {
+        max-width: 440px;
+    }
+}
+
+/* velký desktop – tvoje 27" 2K */
+@media (min-width: 1440px) {
+    .watch-image {
+        max-width: 520px;
+    }
+}
+
+/* Sekce výběru barvy */
+.color-section {
+    padding: 20px 10vw 40px;
+}
+
+.color-section-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.color-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+#selectedColorText {
+    color: #4b5563;
+    margin-bottom: 14px;
+}
+
+/* Výběr barev – tlačítka */
+.color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.color-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #111827;
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.color-option .color-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: #111827; /* bude přepsáno z JS */
+}
+
+/* Aktivní barva */
+.color-option.active {
+    border-color: #111827;
+    box-shadow: 0 8px 20px rgba(15,23,42,0.18);
+    transform: translateY(-1px);
+}
+
+/* Responzivita barvy */
+@media (max-width: 768px) {
+    .color-section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .color-options {
+        justify-content: flex-start;
+    }
+}
+
+/* Dark theme úpravy pro výběr barvy */
+.dark-theme .color-section {
+    background: #020617;
+}
+
+.dark-theme .color-section h2,
+.dark-theme #selectedColorText {
+    color: #e5e7eb;
+}
+
+.dark-theme .color-option {
+    background: #020617;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+.watch-image {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(15,23,42,0.35);
+    display: block;
+    transition: filter 0.25s ease;
+}
+
+/* Animace při změně barvy */
+.watch-image-animate {
+    animation: watchFadeScale 0.35s ease;
+}
+
+@keyframes watchFadeScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.pricing-card {
+    /* zbytek už tam máš */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 45px rgba(15,23,42,0.16);
+}
+
+
+
 

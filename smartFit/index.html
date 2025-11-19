@@ -24,6 +24,10 @@
             <a href="pricing.html">Cena</a>
             <a href="contact.html">Kontakt</a>
         </nav>
+
+        <button id="themeToggle" class="theme-toggle-btn" type="button">
+            🌙 Tmavý režim
+        </button>
     </header>
 
     <!-- HLAVNÍ OBSAH STRÁNKY -->
@@ -39,13 +43,59 @@
 
         <!-- Později sem přidáme obrázek hodinek -->
         <div class="hero-image">
-            <div class="watch-placeholder">
-                <span>Obrázek hodinek<br>(přidáme později)</span>
-            </div>
+            <img 
+                id="mainWatchImage" 
+                src="img/watch-black.png" 
+                alt="Chytré hodinky SmartFit One – černá varianta" 
+                class="watch-image"
+            >
         </div>
+
+        <section class="color-section">
+            <div class="color-section-inner">
+                <h2>Vyber si barvu hodinek</h2>
+                <p id="selectedColorText">Aktuální barva: Černá</p>
+
+                <div class="color-options">
+                    <button 
+                        type="button" 
+                        class="color-option active" 
+                        data-color-name="Černá" 
+                        data-image-src="img/watch-black.png"
+                        data-color-circle="#111827"
+                    >
+                        <span class="color-circle"></span>
+                        <span>Černá</span>
+                    </button>
+
+                    <button 
+                        type="button" 
+                        class="color-option" 
+                        data-color-name="Stříbrná" 
+                        data-image-src="img/watch-silver.png"
+                        data-color-circle="#e5e7eb"
+                    >
+                        <span class="color-circle"></span>
+                        <span>Stříbrná</span>
+                    </button>
+
+                    <button 
+                        type="button" 
+                        class="color-option" 
+                        data-color-name="Růžově zlatá" 
+                        data-image-src="img/watch-rose.png"
+                        data-color-circle="#f9a8d4"
+                    >
+                        <span class="color-circle"></span>
+                        <span>Růžově zlatá</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- PATIČKA -->
+        <!-- PATIČKA -->
     <footer class="site-footer">
         <p>© 2025 SmartFit One – Demo web pro výuku</p>
     </footer>
