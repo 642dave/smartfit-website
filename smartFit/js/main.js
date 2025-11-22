@@ -139,4 +139,58 @@ if (mainWatchImage && colorButtons.length > 0 && selectedColorText) {
     });
 }
 
+// === Fade-in efekt sekcí při scrollu ===
+
+const revealTargets = document.querySelectorAll(
+    ".hero-section, .color-section, .features-grid, .pricing-grid, .contact-grid, .page-intro"
+);
+
+if (revealTargets.length > 0) {
+    // všem těmto elementům přidáme základní třídu .reveal
+    revealTargets.forEach((el) => {
+        el.classList.add("reveal");
+    });
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-visible");
+                        observer.unobserve(entry.target); // po zobrazení už neřešíme
+                    }
+                });
+            },
+            {
+                threshold: 0.15, // stačí malá část v zorném poli
+            }
+        );
+
+        revealTargets.forEach((el) => observer.observe(el));
+    } else {
+        // staré prohlížeče – prostě vše zobraz
+        revealTargets.forEach((el) => el.classList.add("reveal-visible"));
+    }
+}
+
+// === Mobile hamburger menu ===
+const navToggle = document.getElementById("navToggle");
+const siteHeader = document.querySelector(".site-header");
+
+if (navToggle && siteHeader) {
+    navToggle.addEventListener("click", () => {
+        siteHeader.classList.toggle("nav-open");
+    });
+
+    // volitelné: zavřít menu po kliknutí na odkaz
+    const navLinks = siteHeader.querySelectorAll(".main-nav a");
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            siteHeader.classList.remove("nav-open");
+        });
+    });
+}
+
+
+
 

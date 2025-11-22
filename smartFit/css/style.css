@@ -5,12 +5,30 @@
     padding: 0;
 }
 
+/* Moderní SOFT-BLUR background — světla verze */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    will-change: transform;
+    animation: bgFloat 40s ease-in-out infinite alternate;
+
+    background: url("../img/bg-soft-shapes.png") center/cover no-repeat;
+    opacity: 0.22;          /* můžeš upravit 0.10 – 0.30 */
+    filter: blur(2px);      /* jemné rozostření – doporučené */
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+
 /* Celé tělo stránky */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f5f7fb;             /* světle šedé pozadí */
-    color: #222;                     /* tmavý text */
-    line-height: 1.6;                /* příjemné řádkování textu */
+    color: #222;
+    line-height: 1.6;
+    /* žádné obrázky tady, pozadí řešíme přes ::before */
 }
 
 /* HLAVIČKA */
@@ -28,6 +46,14 @@ body {
 
 /* Logo */
 .logo span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 0.05em;
@@ -57,13 +83,14 @@ body {
 
 /* HERO SEKCE – hlavní panel na úvodní stránce */
 .hero-section {
-    min-height: calc(100vh - 80px);  /* skoro celá výška okna */
-    display: grid;                   /* použijeme Grid – 2 sloupce */
+    min-height: 80vh;              /* dřív to bylo skoro celé okno */
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    padding: 40px 10vw;
+    padding: 30px 10vw 10px;       /* menší spodní padding */
 }
+
 
 /* Textová část hero sekce */
 .hero-text h1 {
@@ -98,10 +125,15 @@ body {
 
 /* Placeholder pro budoucí obrázek hodinek */
 .hero-image {
+    position: relative;              /* kvůli efektu pod hodinkami */
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
+    z-index: 0;
 }
+
+
 
 .watch-placeholder {
     width: 260px;
@@ -120,9 +152,74 @@ body {
 /* Patička */
 .site-footer {
     text-align: center;
-    padding: 16px;
+    padding: 18px 16px;
     font-size: 0.9rem;
     color: #6b7280;
+    background: #ffffff;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Druhý řádek v patičce – menší, jemnější */
+.footer-sub {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+/* Footer – GitHub ikonka */
+.footer-github-icon {
+    width: 28px;
+    height: 28px;
+    fill: #374151;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0.8;
+}
+
+.footer-github-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Footer – sociální ikony */
+.footer-social {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.footer-icon {
+    width: 26px;
+    height: 26px;
+    fill: #374151;        /* GitHub */
+    stroke: #374151;      /* Email (protože má stroke path) */
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Dark mode */
+.dark-theme .footer-icon {
+    fill: #9ca3af;
+    stroke: #9ca3af;
+}
+
+.dark-theme .footer-icon:hover {
+    fill: #ffffff;
+    stroke: #ffffff;
+}
+
+/* Dark theme */
+.dark-theme .footer-github-icon {
+    fill: #9ca3af;
+}
+
+.dark-theme .footer-github-icon:hover {
+    fill: #ffffff;
 }
 
 /* Obecné nastavení pro podstránky */
@@ -350,6 +447,55 @@ body {
     color: #4b5563;
 }
 
+/* === Stylování kontaktů (e-mail + GitHub) === */
+
+.contact-info a {
+    color: #1e40af;                    /* jemná modro-fialová - profesionální */
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.contact-info a:hover {
+    color: #1d4ed8;                    /* světlejší modrá */
+    border-bottom-color: #1d4ed8;      /* podtržení jen na hover - moderní */
+}
+
+/* === Kontakt – ikonky a odkazy === */
+
+.contact-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.contact-line svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1e40af;
+    fill: none;
+    flex-shrink: 0;
+}
+
+/* === Dark mode === */
+
+.dark-theme .contact-line svg {
+    stroke: #93c5fd;
+}
+
+/* DARK MODE */
+.dark-theme .contact-info a {
+    color: #93c5fd;                    /* světle modrá */
+}
+
+.dark-theme .contact-info a:hover {
+    color: #bfdbfe;
+    border-bottom-color: #bfdbfe;
+}
+
 /* Formulář */
 .contact-form-wrapper {
     background: #ffffff;
@@ -461,9 +607,11 @@ body {
 /* === DARK THEME === */
 
 .dark-theme body {
-    background: #020617;          /* skoro černá / hodně tmavá modrá */
+    background: #020617;
     color: #e5e7eb;
 }
+
+
 
 .dark-theme .site-header {
     background: #020617;
@@ -485,6 +633,10 @@ body {
     background: #020617;
     color: #9ca3af;
     border-top: 1px solid #111827;
+}
+
+.dark-theme .footer-sub {
+    color: #6b7280;
 }
 
 /* Karty a boxy v dark módu */
@@ -554,31 +706,75 @@ body {
     color: #6b7280;
 }
 
-/* Obrázek hodinek v hero sekci */
+/* Dark theme – mobilní menu z hamburgeru */
+@media (max-width: 768px) {
+    .dark-theme .main-nav {
+        background: #020617;               /* tmavé pozadí */
+        box-shadow: 0 16px 40px rgba(0,0,0,0.8);
+        border: 1px solid #111827;
+    }
+
+    .dark-theme .main-nav a {
+        color: #e5e7eb;                    /* světlý text */
+    }
+
+    .dark-theme .main-nav a:hover,
+    .dark-theme .main-nav a.active {
+        color: #ffffff;
+        border-bottom-color: transparent;  /* žádná spodní linka v mobil menu */
+    }
+}
+
+
+/* === Obrázek hodinek v hero sekci – JEDNOTNÁ DEFINICE === */
+
 .watch-image {
-    max-width: 360px;
     width: 100%;
+    max-width: 340px;         /* mobil / menší displeje */
     border-radius: 32px;
     box-shadow: 0 20px 50px rgba(15,23,42,0.35);
     display: block;
+    margin: 0 auto;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    z-index: 1; 
 }
 
+/* větší notebook / běžný desktop */
 @media (min-width: 1024px) {
     .watch-image {
         max-width: 440px;
     }
 }
 
-/* velký desktop – tvoje 27" 2K */
+/* velké monitory (tvůj 27" 2K a podobně) */
 @media (min-width: 1440px) {
     .watch-image {
         max-width: 520px;
     }
 }
 
-/* Sekce výběru barvy */
+/* obří monitory – můžeš klidně i vypustit, když bude moc */
+@media (min-width: 1600px) {
+    .watch-image {
+        max-width: 580px;
+    }
+}
+
+/* Hover efekt – jen na zařízeních, kde je myš */
+@media (hover: hover) {
+    .hero-image:hover .watch-image {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 60px rgba(15,23,42,0.55);
+    }
+}
+
+
+/* === Sekce výběru barvy hodinek === */
+
 .color-section {
-    padding: 20px 10vw 40px;
+    padding: 16px 10vw 40px;
+    margin-top: 16px;               /* malý odstup od hero sekce */
 }
 
 .color-section-inner {
@@ -614,14 +810,15 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     color: #111827;
-    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease, box-shadow 0.15s ease,
+                transform 0.15s ease, border-color 0.15s ease;
 }
 
 .color-option .color-circle {
     width: 16px;
     height: 16px;
     border-radius: 999px;
-    background: #111827; /* bude přepsáno z JS */
+    background: #111827; /* přepisuje JS */
 }
 
 /* Aktivní barva */
@@ -636,6 +833,7 @@ body {
     .color-section {
         padding-left: 5vw;
         padding-right: 5vw;
+        margin-top: 8px;
     }
 
     .color-options {
@@ -643,7 +841,16 @@ body {
     }
 }
 
-/* Dark theme úpravy pro výběr barvy */
+/* Na desktopu barvy jemně přitáhneme k hero sekci */
+@media (min-width: 1024px) {
+    .color-section {
+        margin-top: -24px;     /* když budeš chtít víc, dej třeba -32px */
+    }
+}
+
+
+/* === Dark theme úpravy pro výběr barvy === */
+
 .dark-theme .color-section {
     background: #020617;
 }
@@ -659,16 +866,9 @@ body {
     color: #e5e7eb;
 }
 
-.watch-image {
-    max-width: 280px;
-    width: 100%;
-    border-radius: 32px;
-    box-shadow: 0 20px 50px rgba(15,23,42,0.35);
-    display: block;
-    transition: filter 0.25s ease;
-}
 
-/* Animace při změně barvy */
+/* === Animace při změně barvy hodinek === */
+
 .watch-image-animate {
     animation: watchFadeScale 0.35s ease;
 }
@@ -684,8 +884,10 @@ body {
     }
 }
 
+
+/* === Hover efekt na cenových kartách === */
+
 .pricing-card {
-    /* zbytek už tam máš */
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -693,6 +895,171 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 20px 45px rgba(15,23,42,0.16);
 }
+
+
+/* === Fade-in při scrollu === */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pravá část hlavičky – navigace + tlačítka */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Základ hamburger tlačítka */
+.nav-toggle {
+    display: none;                  /* na desktopu schované */
+    width: 28px;
+    height: 22px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: #111827;
+}
+
+.nav-toggle span + span {
+    margin-top: 4px;
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 768px) {
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #ffffff;
+        box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+        border-radius: 12px;
+        padding: 10px 16px;
+        display: none;                 /* výchozí stav – schované menu */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .main-nav a {
+        margin: 0;
+        padding: 6px 0;
+        border-bottom: none;
+    }
+
+    .header-right {
+        gap: 8px;
+    }
+
+    .nav-toggle {
+        display: inline-flex;          /* na mobilu zobrazit */
+    }
+
+    /* Když je hlavička v režimu "otevřené menu" */
+    .site-header.nav-open .main-nav {
+        display: flex;
+    }
+}
+
+/* Dark mode verze hamburgeru */
+.dark-theme .nav-toggle {
+    background: #111827;
+    border-color: #374151;
+}
+
+.dark-theme .nav-toggle span {
+    background: #e5e7eb;
+}
+
+.dark-theme body::before {
+    opacity: 0.12;
+    filter: brightness(0.55) blur(2px);
+}
+
+@keyframes bgFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(10px, -12px, 0) scale(1.02);
+    }
+    100% {
+        transform: translate3d(-8px, 8px, 0) scale(1.01);
+    }
+}
+
+/* Respektuj nastavení uživatele – vypnout animace */
+@media (prefers-reduced-motion: reduce) {
+    html::before,
+    body::before {
+        animation: none !important;
+    }
+}
+
+/* Jemný glow efekt kolem hodinek */
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    border-radius: 40px;
+    background: radial-gradient(circle at center,
+        rgba(96,165,250,0.50),
+        rgba(59,130,246,0.10),
+        transparent 65%);
+    filter: blur(18px);
+    opacity: 0.32;
+    z-index: -1;
+    pointer-events: none;
+    animation: watchGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes watchGlow {
+    0% {
+        opacity: 0.22;
+        transform: scale(0.97);
+    }
+    100% {
+        opacity: 0.45;
+        transform: scale(1.03);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image::before {
+        animation: none;
+    }
+}
+
+
+
+
+
+
+
 
 
 

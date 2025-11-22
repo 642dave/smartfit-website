@@ -11,21 +11,33 @@
 
     <!-- HLAVIČKA – stejná jako na indexu, jen aktivní je "Funkce" -->
     <header class="site-header">
-        <div class="logo">
-            <span>SmartFit One</span>
+
+        <!-- HAMBURGER VLEVO -->
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Logo je hned vedle hamburgeru -->
+       <div class="logo">
+            <a href="index.html">SmartFit</a>
         </div>
 
-        <nav class="main-nav">
-            <a href="index.html">Domů</a>
-            <a href="features.html" class="active">Funkce</a>
-            <a href="pricing.html">Cena</a>
-            <a href="contact.html">Kontakt</a>
-        </nav>
+        <div class="header-right">
+            <nav class="main-nav">
+                <a href="index.html">Domů</a>
+                <a href="features.html">Funkce</a>
+                <a href="pricing.html">Cena</a>
+                <a href="contact.html">Kontakt</a>
+            </nav>
 
-        <button id="themeToggle" class="theme-toggle-btn" type="button">
-            🌙 Tmavý režim
-        </button>
+            <button class="theme-toggle-btn" id="themeToggle">🌓</button>
+        </div>
+
     </header>
+
+
 
     <!-- HLAVNÍ OBSAH STRÁNKY -->
     <main class="page page-features">
@@ -34,6 +46,8 @@
             <p>
                 SmartFit One není jen další fitness náramek. 
                 Je to tvůj osobní trenér, asistent a hlídač zdraví v jednom.
+                SmartFit ti dává všechny důležité informace na jedno otočení zápěstí.
+                Žádné přehlcené nabídky, jen přehledné statistiky a funkce, které opravdu využiješ.
             </p>
         </section>
 
@@ -82,6 +96,7 @@
                 <ul>
                     <li>Podpora WhatsApp, Messenger, e-mail a dalších</li>
                     <li>Možnost ztlumit režim na schůzkách</li>
+                    <li>Notifikace z telefonu – Zprávy, hovory a aplikace, aniž bys vytahoval mobil.</li>
                     <li>Najdi svůj telefon jedním klepnutím</li>
                 </ul>
             </article>
@@ -89,8 +104,36 @@
     </main>
 
     <footer class="site-footer">
-        <p>© 2025 SmartFit One – Demo web pro výuku</p>
+        <p>© 2025 SmartFit</p>
+        <p class="footer-sub">Ukázkový produktový web</p>
+
+        <div class="footer-social">
+
+            <!-- GitHub – repo SmartFit -->
+            <a href="https://github.com/642dave/smartfit-website.git" target="_blank" aria-label="GitHub">
+                <svg class="footer-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.7 2 12.4c0 4.56 2.87 8.43 6.84 9.8.5.1.68-.23.68-.5v-1.7c-2.78.62-3.37-1.4-3.37-1.4-.45-1.2-1.11-1.52-1.11-1.52-.91-.65.07-.64.07-.64 
+                    1 .07 1.53 1.06 1.53 1.06.9 1.6 2.37 1.13 2.95.86.09-.67.35-1.13.63-1.4-2.22-.27-4.56-1.17-4.56-5.2 
+                    0-1.15.39-2.1 1.03-2.83-.1-.27-.45-1.38.1-2.87 0 0 .84-.28 2.75 1.08A9.1 9.1 0 0 1 12 6.3a9.1 9.1 0 0 1 2.47.35c1.9-1.36 2.74-1.08 2.74-1.08.55 1.5.2 2.6.1 2.87.64.73 1.03 1.68 1.03 2.83 
+                    0 4.04-2.34 4.92-4.57 5.18.36.33.68.97.68 1.96v2.92c0 .27.18.6.69.5A10.41 10.41 0 0 0 22 12.4C22 6.7 17.52 2 12 2z"/>
+                </svg>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:rd937120@gmail.com" aria-label="Email">
+                <svg class="footer-icon" viewBox="0 0 24 24">
+                    <path d="M4 4h16v16H4V4zm0 4l8 5 8-5" 
+                        stroke-width="2" 
+                        fill="none" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+        </div>
     </footer>
+
+
 
     <script src="js/main.js"></script>
 </body>
