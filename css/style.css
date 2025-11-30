@@ -5,6 +5,11 @@
     padding: 0;
 }
 
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+}
+
 /* Moderní SOFT-BLUR background — světla verze */
 body::before {
     content: "";
@@ -22,26 +27,47 @@ body::before {
     pointer-events: none;
 }
 
-
-/* Celé tělo stránky */
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #222;
-    line-height: 1.6;
-    /* žádné obrázky tady, pozadí řešíme přes ::before */
+/* HLAVIČKA - desktop */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-/* HLAVIČKA */
-.site-header {
-    display: flex;                   /* vedle sebe logo + menu */
-    justify-content: space-between;  /* logo vlevo, menu vpravo */
+/* pravá část headeru – menu + tlačítka v jedné řadě */
+.header-right {
+    display: flex;
     align-items: center;
-    padding: 16px 32px;
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    position: sticky;                /* hlavička zůstává nahoře při scrollu */
-    top: 0;
-    z-index: 10;
+    gap: 1.5rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* tlačítko Zpět na portfolio */
+.back-to-portfolio {
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    opacity: 0.85;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    white-space: nowrap;
+}
+
+.back-to-portfolio:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 /* Logo */
@@ -54,6 +80,7 @@ body {
 .logo a {
     text-decoration: none;
     color: inherit;
+    font-family: "Playfair Display", serif;
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 0.05em;
@@ -94,6 +121,8 @@ body {
 
 /* Textová část hero sekce */
 .hero-text h1 {
+     font-family: "Playfair Display", serif;   /* nový řádek */
+    font-weight: 700;
     font-size: 2.6rem;
     margin-bottom: 16px;
 }
@@ -132,8 +161,6 @@ body {
     padding: 20px 0;
     z-index: 0;
 }
-
-
 
 .watch-placeholder {
     width: 260px;
@@ -771,7 +798,6 @@ body {
 
 
 /* === Sekce výběru barvy hodinek === */
-
 .color-section {
     padding: 16px 10vw 40px;
     margin-top: 16px;               /* malý odstup od hero sekce */
@@ -850,7 +876,6 @@ body {
 
 
 /* === Dark theme úpravy pro výběr barvy === */
-
 .dark-theme .color-section {
     background: #020617;
 }
@@ -864,6 +889,11 @@ body {
     background: #020617;
     border-color: #374151;
     color: #e5e7eb;
+}
+
+.dark-theme .back-to-portfolio {
+    color: #e5e7eb;          /* světle šedá – dobře čitelná */
+    border-color: #6b7280;   /* šedý okraj ladící s tmavým režimem */
 }
 
 
@@ -884,7 +914,6 @@ body {
     }
 }
 
-
 /* === Hover efekt na cenových kartách === */
 
 .pricing-card {
@@ -895,7 +924,6 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 20px 45px rgba(15,23,42,0.16);
 }
-
 
 /* === Fade-in při scrollu === */
 
@@ -919,7 +947,7 @@ body {
 
 /* Základ hamburger tlačítka */
 .nav-toggle {
-    display: none;                  /* na desktopu schované */
+    display: none; /* na desktopu schované */
     width: 28px;
     height: 22px;
     padding: 0;
@@ -958,7 +986,7 @@ body {
         box-shadow: 0 12px 30px rgba(15,23,42,0.18);
         border-radius: 12px;
         padding: 10px 16px;
-        display: none;                 /* výchozí stav – schované menu */
+        display: none;                 /* výchozí stav – skryte menu */
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
@@ -975,7 +1003,7 @@ body {
         gap: 8px;
     }
 
-    .nav-toggle {
+     .nav-toggle {
         display: inline-flex;          /* na mobilu zobrazit */
     }
 
@@ -1053,6 +1081,14 @@ body {
         animation: none;
     }
 }
+
+/* Uprava zobrazeni na velmi uzkych mobilech */
+@media (max-width: 480px) {
+    .back-to-portfolio {
+        display: none;
+    }
+}
+
 
 
 
