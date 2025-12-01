@@ -1,19 +1,18 @@
-// === Kontakt – jednoduchá validace formuláře ===
+// === Contact – simple form validation ===
 
-// Najdeme formulář a status zprávu (ale jen pokud jsme na contact.html)
 const contactForm = document.getElementById("contactForm");
 const contactStatus = document.getElementById("contactStatus");
 
 if (contactForm && contactStatus) {
     contactForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // zabrání klasickému odeslání / reloadu stránky
+        event.preventDefault();  // Prevent default submit / page reload
 
-        // Načtení hodnot
+        // Read values
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        // Základní kontrola
+        // Basic validation
         if (!name || !email || !message) {
             contactStatus.textContent = "Vyplň prosím všechna pole.";
             contactStatus.classList.remove("success");
@@ -21,7 +20,7 @@ if (contactForm && contactStatus) {
             return;
         }
 
-        // Velmi jednoduchá kontrola e-mailu (jen jestli obsahuje @)
+        // Simple email check (only checks for @)
         if (!email.includes("@")) {
             contactStatus.textContent = "Zadej prosím platný e-mail.";
             contactStatus.classList.remove("success");
@@ -29,18 +28,18 @@ if (contactForm && contactStatus) {
             return;
         }
 
-        // Kdyby tu byl backend, tady bychom data poslali na server.
-        // My jen zobrazíme potvrzení:
+        // No backend here
+        // Shows a confirmation message only:
         contactStatus.textContent = "Děkujeme za zprávu! Ozveme se ti co nejdříve.";
         contactStatus.classList.remove("error");
         contactStatus.classList.add("success");
 
-        // Vyčištění formuláře
+        // Clear the form
         contactForm.reset();
     });
 }
 
-// === Výběr cenové varianty na stránce "Cena" ===
+// === Plan selection on the "Pricing" page ===
 
 const planButtons = document.querySelectorAll(".select-plan");
 const selectedPlanText = document.getElementById("selectedPlan");
@@ -51,10 +50,10 @@ if (planButtons.length > 0 && selectedPlanText) {
             const planName = this.dataset.planName;
             const planPrice = this.dataset.planPrice;
 
-            // Aktualizace textu shrnutí
+            // Update summary text
             selectedPlanText.textContent = `Vybral sis variantu ${planName} za ${planPrice}.`;
 
-            // Zvýraznění vybrané karty
+            // Highlight selected card
             const allCards = document.querySelectorAll(".pricing-card");
             allCards.forEach(function(card) {
                 card.classList.remove("selected-plan");
@@ -68,10 +67,10 @@ if (planButtons.length > 0 && selectedPlanText) {
     });
 }
 
-// === Přepínání světlý / tmavý režim + localStorage ===
+// === Light / dark theme toggle + localStorage ===
 
 const themeToggleBtn = document.getElementById("themeToggle");
-const rootElement = document.documentElement; // <html>
+const rootElement = document.documentElement; // <html> element
 
 function applyTheme(theme) {
     if (!themeToggleBtn) return;
@@ -86,7 +85,7 @@ function applyTheme(theme) {
 }
 
 if (themeToggleBtn) {
-    // Načíst uložený theme nebo default "light"
+    // Load stored theme or default to "light"
     const savedTheme = localStorage.getItem("theme") || "light";
     applyTheme(savedTheme);
 
@@ -98,14 +97,14 @@ if (themeToggleBtn) {
     });
 }
 
-// === Výběr barvy hodinek na homepage ===
+// === Watch color selection on homepage ===
 
 const mainWatchImage = document.getElementById("mainWatchImage");
 const colorButtons = document.querySelectorAll(".color-option");
 const selectedColorText = document.getElementById("selectedColorText");
 
 if (mainWatchImage && colorButtons.length > 0 && selectedColorText) {
-    // Inicializace barevných koleček podle data atributu
+    // Initialize color dots based on data attribute
     colorButtons.forEach(function(button) {
         const circle = button.querySelector(".color-circle");
         const circleColor = button.dataset.colorCircle;
@@ -114,10 +113,9 @@ if (mainWatchImage && colorButtons.length > 0 && selectedColorText) {
         }
 
         button.addEventListener("click", function() {
-            // Odebereme active ze všech
+            
             colorButtons.forEach(btn => btn.classList.remove("active"));
 
-            // Přidáme active aktuálnímu
             this.classList.add("active");
 
             const newImageSrc = this.dataset.imageSrc;
@@ -128,9 +126,9 @@ if (mainWatchImage && colorButtons.length > 0 && selectedColorText) {
                 mainWatchImage.alt = `Chytré hodinky SmartFit One – ${colorName}`;
             }
 
-            // ➜ Restart animace
+            // ➜ Restart animation
             mainWatchImage.classList.remove("watch-image-animate");
-            // vynutíme reflow, aby šla animace pustit znovu
+            // Force reflow so the animation can play again
             void mainWatchImage.offsetWidth;
             mainWatchImage.classList.add("watch-image-animate");
 
@@ -139,14 +137,14 @@ if (mainWatchImage && colorButtons.length > 0 && selectedColorText) {
     });
 }
 
-// === Fade-in efekt sekcí při scrollu ===
+// === Fade-in effect for sections on scroll ===
 
 const revealTargets = document.querySelectorAll(
     ".hero-section, .color-section, .features-grid, .pricing-grid, .contact-grid, .page-intro"
 );
 
 if (revealTargets.length > 0) {
-    // všem těmto elementům přidáme základní třídu .reveal
+    
     revealTargets.forEach((el) => {
         el.classList.add("reveal");
     });
@@ -157,18 +155,18 @@ if (revealTargets.length > 0) {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("reveal-visible");
-                        observer.unobserve(entry.target); // po zobrazení už neřešíme
+                        observer.unobserve(entry.target); 
                     }
                 });
             },
             {
-                threshold: 0.15, // stačí malá část v zorném poli
+                threshold: 0.15, 
             }
         );
 
         revealTargets.forEach((el) => observer.observe(el));
     } else {
-        // staré prohlížeče – prostě vše zobraz
+        // Old browsers fallback 
         revealTargets.forEach((el) => el.classList.add("reveal-visible"));
     }
 }
@@ -182,7 +180,7 @@ if (navToggle && siteHeader) {
         siteHeader.classList.toggle("nav-open");
     });
 
-    // volitelné: zavřít menu po kliknutí na odkaz
+    // Optional: close menu after clicking a link
     const navLinks = siteHeader.querySelectorAll(".main-nav a");
     navLinks.forEach((link) => {
         link.addEventListener("click", () => {

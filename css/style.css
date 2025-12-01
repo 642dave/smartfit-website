@@ -1,6 +1,12 @@
-/* Reset pár základních věcí pro konzistentní vzhled */
+/* ===============================
+   SMARTFIT ONE – MAIN STYLESHEET
+   Author: David Rakovský
+   Description: Product landing page for SmartFit One
+================================ */
+
+/* Basic reset */
 * {
-    box-sizing: border-box;          /* šířky se počítají včetně paddingu */
+    box-sizing: border-box;          
     margin: 0;
     padding: 0;
 }
@@ -10,7 +16,7 @@ body {
     font-weight: 400;
 }
 
-/* Moderní SOFT-BLUR background — světla verze */
+/* Modern soft-blur background — light version */
 body::before {
     content: "";
     position: fixed;
@@ -20,14 +26,14 @@ body::before {
     animation: bgFloat 40s ease-in-out infinite alternate;
 
     background: url("../img/bg-soft-shapes.png") center/cover no-repeat;
-    opacity: 0.22;          /* můžeš upravit 0.10 – 0.30 */
-    filter: blur(2px);      /* jemné rozostření – doporučené */
+    opacity: 0.22;          
+    filter: blur(2px);      
 
     z-index: -1;
     pointer-events: none;
 }
 
-/* HLAVIČKA - desktop */
+/* HEADER - desktop */
 .site-header {
     position: sticky;
     top: 0;
@@ -40,7 +46,7 @@ body::before {
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
-/* pravá část headeru – menu + tlačítka v jedné řadě */
+/* Right side of header – menu + buttons in one row */
 .header-right {
     display: flex;
     align-items: center;
@@ -52,7 +58,7 @@ body::before {
     gap: 1.5rem;
 }
 
-/* tlačítko Zpět na portfolio */
+/* "Back to portfolio" button */
 .back-to-portfolio {
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
@@ -86,7 +92,7 @@ body::before {
     letter-spacing: 0.05em;
 }
 
-/* Navigace */
+/* Navigation */
 .main-nav a {
     margin-left: 16px;
     text-decoration: none;
@@ -102,26 +108,26 @@ body::before {
     border-bottom-color: #111;
 }
 
-/* Aktivní položka menu */
+/* Active menu item */
 .main-nav a.active {
     color: #111;
     border-bottom-color: #111;
 }
 
-/* HERO SEKCE – hlavní panel na úvodní stránce */
+/* HERO SECTION – main panel on the landing page */
 .hero-section {
-    min-height: 80vh;              /* dřív to bylo skoro celé okno */
+    min-height: 80vh;              
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-    padding: 30px 10vw 10px;       /* menší spodní padding */
+    padding: 30px 10vw 10px;       
 }
 
 
-/* Textová část hero sekce */
+/* Text part of the hero section */
 .hero-text h1 {
-     font-family: "Playfair Display", serif;   /* nový řádek */
+     font-family: "Playfair Display", serif;   
     font-weight: 700;
     font-size: 2.6rem;
     margin-bottom: 16px;
@@ -133,13 +139,13 @@ body::before {
     max-width: 480px;
 }
 
-/* Primární tlačítko */
+/* Primary button */
 .btn-primary {
     display: inline-block;
-    background: #111827;             /* tmavě modro-černá */
+    background: #111827;             
     color: white;
     padding: 12px 24px;
-    border-radius: 999px;            /* kulaté "pilulkové" tlačítko */
+    border-radius: 999px;            /* Rounded pill-shaped button */
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 0.03em;
@@ -152,9 +158,9 @@ body::before {
     box-shadow: 0 8px 20px rgba(15,23,42,0.25);
 }
 
-/* Placeholder pro budoucí obrázek hodinek */
+/* Placeholder for the watch image */
 .hero-image {
-    position: relative;              /* kvůli efektu pod hodinkami */
+    position: relative;              /* For the glow/shadow effect under the watch */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,7 +182,7 @@ body::before {
     background: #eef2ff;
 }
 
-/* Patička */
+/* Footer */
 .site-footer {
     text-align: center;
     padding: 18px 16px;
@@ -186,14 +192,14 @@ body::before {
     border-top: 1px solid #e5e7eb;
 }
 
-/* Druhý řádek v patičce – menší, jemnější */
+/* Second footer row – smaller and lighter */
 .footer-sub {
     margin-top: 4px;
     font-size: 0.8rem;
     color: #9ca3af;
 }
 
-/* Footer – GitHub ikonka */
+/* Footer – GitHub icon */
 .footer-github-icon {
     width: 28px;
     height: 28px;
@@ -207,7 +213,7 @@ body::before {
     transform: translateY(-2px);
 }
 
-/* Footer – sociální ikony */
+/* Footer – social icons */
 .footer-social {
     margin-top: 12px;
     display: flex;
@@ -219,7 +225,7 @@ body::before {
     width: 26px;
     height: 26px;
     fill: #374151;        /* GitHub */
-    stroke: #374151;      /* Email (protože má stroke path) */
+    stroke: #374151;      /* Email (uses stroke path) */
     opacity: 0.8;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -249,12 +255,12 @@ body::before {
     fill: #ffffff;
 }
 
-/* Obecné nastavení pro podstránky */
+/* General layout for subpages */
 .page {
     padding: 40px 10vw 60px;
 }
 
-/* Úvodní blok na podstránkách */
+/* Intro block on subpages */
 .page-intro {
     max-width: 720px;
     margin: 0 auto 32px;
@@ -270,14 +276,14 @@ body::before {
     color: #4b5563;
 }
 
-/* GRID s funkcemi hodinek */
+/* GRID with watch features */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
 }
 
-/* Karta jedné funkce */
+/* Single feature card */
 .feature-card {
     background: #ffffff;
     border-radius: 16px;
@@ -308,7 +314,7 @@ body::before {
     margin-top: 4px;
 }
 
-/* Jednoduchá responzivita – na mobilu jeden sloupec */
+/* Simple responsiveness – single column on mobile */
 @media (max-width: 768px) {
     .hero-section {
         grid-template-columns: 1fr;
@@ -329,20 +335,20 @@ body::before {
     }
 }
 
-/* PRICING STRÁNKA */
+/* PRICING PAGE */
 .page-pricing {
     max-width: 960px;
     margin: 0 auto;
 }
 
-/* GRID s cenovými kartami */
+/* GRID with pricing cards */
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
 }
 
-/* Jedna cenová karta */
+/* Single pricing card */
 .pricing-card {
     background: #ffffff;
     border-radius: 20px;
@@ -364,7 +370,7 @@ body::before {
     margin-bottom: 16px;
 }
 
-/* Cena */
+/* Price */
 .pricing-price {
     font-size: 1.8rem;
     font-weight: 700;
@@ -379,7 +385,7 @@ body::before {
     margin-top: 2px;
 }
 
-/* Výčet vlastností v kartě */
+/* Feature list inside the card */
 .pricing-features {
     list-style: none;
     margin: 14px 0 18px;
@@ -392,7 +398,7 @@ body::before {
     margin-top: 4px;
 }
 
-/* Badge nahoře na kartě */
+/* Badge at the top of the card */
 .badge {
     position: absolute;
     top: 16px;
@@ -410,14 +416,14 @@ body::before {
     color: white;
 }
 
-/* Blokové tlačítko v kartě */
+/* Full-width button in the card */
 .btn-block {
     display: block;
     width: 100%;
     text-align: center;
 }
 
-/* Sekundární tlačítko */
+/* Secondary button */
 .btn-secondary {
     display: inline-block;
     background: #e5e7eb;
@@ -437,7 +443,7 @@ body::before {
     box-shadow: 0 8px 20px rgba(15,23,42,0.25);
 }
 
-/* Responzivita – na mobilu 1 sloupec */
+/* Responsiveness – one column on mobile */
 @media (max-width: 768px) {
     .pricing-grid {
         grid-template-columns: 1fr;
@@ -449,13 +455,13 @@ body::before {
     }
 }
 
-/* KONTAKT STRÁNKA */
+/* CONTACT PAGE */
 .page-contact {
     max-width: 980px;
     margin: 0 auto;
 }
 
-/* Layout: vlevo info, vpravo formulář */
+/* Layout: info on the left, form on the right */
 .contact-grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -474,10 +480,10 @@ body::before {
     color: #4b5563;
 }
 
-/* === Stylování kontaktů (e-mail + GitHub) === */
+/* === Contact links styling (email + GitHub) === */
 
 .contact-info a {
-    color: #1e40af;                    /* jemná modro-fialová - profesionální */
+    color: #1e40af;                    
     font-weight: 600;
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -486,11 +492,11 @@ body::before {
 }
 
 .contact-info a:hover {
-    color: #1d4ed8;                    /* světlejší modrá */
-    border-bottom-color: #1d4ed8;      /* podtržení jen na hover - moderní */
+    color: #1d4ed8;                    
+    border-bottom-color: #1d4ed8;     
 }
 
-/* === Kontakt – ikonky a odkazy === */
+/* === Contact section – icons and links === */
 
 .contact-line {
     display: flex;
@@ -523,7 +529,7 @@ body::before {
     border-bottom-color: #bfdbfe;
 }
 
-/* Formulář */
+/* Form */
 .contact-form-wrapper {
     background: #ffffff;
     border-radius: 16px;
@@ -561,7 +567,7 @@ body::before {
     box-shadow: 0 0 0 1px #11182720;
 }
 
-/* Stavová zpráva pod formulářem */
+/* Status message below the form */
 .contact-status {
     margin-top: 10px;
     font-size: 0.9rem;
@@ -576,7 +582,7 @@ body::before {
     color: #dc2626;
 }
 
-/* Responzivita kontaktu */
+/* Contact section responsiveness */
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -588,7 +594,7 @@ body::before {
     }
 }
 
-/* Shrnutí vybrané varianty */
+/* Summary of selected plan */
 .pricing-summary {
     margin-top: 32px;
     padding: 18px 20px;
@@ -606,13 +612,13 @@ body::before {
     color: #374151;
 }
 
-/* Zvýraznění vybrané cenové karty */
+/* Highlight selected pricing card */
 .pricing-card.selected-plan {
     border-color: #111827;
     box-shadow: 0 20px 45px rgba(15,23,42,0.20);
 }
 
-/* Tlačítko pro přepínání režimu */
+/* Theme toggle button */
 .theme-toggle-btn {
     margin-left: 16px;
     padding: 6px 12px;
@@ -666,7 +672,7 @@ body::before {
     color: #6b7280;
 }
 
-/* Karty a boxy v dark módu */
+/* Cards and boxes in dark mode */
 .dark-theme .feature-card,
 .dark-theme .pricing-card,
 .dark-theme .contact-form-wrapper,
@@ -678,7 +684,7 @@ body::before {
     box-shadow: 0 14px 30px rgba(0,0,0,0.7);
 }
 
-/* Texty v kartách */
+/* Text inside cards */
 .dark-theme .feature-card p,
 .dark-theme .feature-card li,
 .dark-theme .pricing-subtitle,
@@ -688,7 +694,7 @@ body::before {
     color: #d1d5db;
 }
 
-/* Tlačítka v dark módu */
+/* Buttons in dark mode */
 .dark-theme .btn-primary {
     background: #e5e7eb;
     color: #020617;
@@ -709,7 +715,7 @@ body::before {
     color: #020617;
 }
 
-/* Tlačítko přepínače v dark módu */
+/* Toggle button in dark mode */
 .dark-theme .theme-toggle-btn {
     background: #111827;
     border-color: #374151;
@@ -720,7 +726,7 @@ body::before {
     background: #020617;
 }
 
-/* Inputy v dark módu */
+/* Inputs in dark mode */
 .dark-theme .form-group input,
 .dark-theme .form-group textarea {
     background: #020617;
@@ -733,31 +739,31 @@ body::before {
     color: #6b7280;
 }
 
-/* Dark theme – mobilní menu z hamburgeru */
+/* Dark theme – mobile menu from hamburger */
 @media (max-width: 768px) {
     .dark-theme .main-nav {
-        background: #020617;               /* tmavé pozadí */
+        background: #020617;               
         box-shadow: 0 16px 40px rgba(0,0,0,0.8);
         border: 1px solid #111827;
     }
 
     .dark-theme .main-nav a {
-        color: #e5e7eb;                    /* světlý text */
+        color: #e5e7eb;                    
     }
 
     .dark-theme .main-nav a:hover,
     .dark-theme .main-nav a.active {
         color: #ffffff;
-        border-bottom-color: transparent;  /* žádná spodní linka v mobil menu */
+        border-bottom-color: transparent; 
     }
 }
 
 
-/* === Obrázek hodinek v hero sekci – JEDNOTNÁ DEFINICE === */
+/* === Watch image in hero section – UNIFIED DEFINITION === */
 
 .watch-image {
     width: 100%;
-    max-width: 340px;         /* mobil / menší displeje */
+    max-width: 340px;         /* Mobile / smaller screens */
     border-radius: 32px;
     box-shadow: 0 20px 50px rgba(15,23,42,0.35);
     display: block;
@@ -767,28 +773,28 @@ body::before {
     z-index: 1; 
 }
 
-/* větší notebook / běžný desktop */
+/* Larger laptop / standard desktop */
 @media (min-width: 1024px) {
     .watch-image {
         max-width: 440px;
     }
 }
 
-/* velké monitory (tvůj 27" 2K a podobně) */
+/* Large monitors */
 @media (min-width: 1440px) {
     .watch-image {
         max-width: 520px;
     }
 }
 
-/* obří monitory – můžeš klidně i vypustit, když bude moc */
+/* Very large monitors */
 @media (min-width: 1600px) {
     .watch-image {
         max-width: 580px;
     }
 }
 
-/* Hover efekt – jen na zařízeních, kde je myš */
+/* Hover effect – only on devices with a mouse */
 @media (hover: hover) {
     .hero-image:hover .watch-image {
         transform: translateY(-6px);
@@ -796,11 +802,10 @@ body::before {
     }
 }
 
-
-/* === Sekce výběru barvy hodinek === */
+/* === Watch color selection section === */
 .color-section {
     padding: 16px 10vw 40px;
-    margin-top: 16px;               /* malý odstup od hero sekce */
+    margin-top: 16px;               
 }
 
 .color-section-inner {
@@ -818,7 +823,7 @@ body::before {
     margin-bottom: 14px;
 }
 
-/* Výběr barev – tlačítka */
+/* Color selection – buttons */
 .color-options {
     display: flex;
     flex-wrap: wrap;
@@ -847,14 +852,14 @@ body::before {
     background: #111827; /* přepisuje JS */
 }
 
-/* Aktivní barva */
+/* Active color */
 .color-option.active {
     border-color: #111827;
     box-shadow: 0 8px 20px rgba(15,23,42,0.18);
     transform: translateY(-1px);
 }
 
-/* Responzivita barvy */
+/* Color section responsiveness */
 @media (max-width: 768px) {
     .color-section {
         padding-left: 5vw;
@@ -867,15 +872,15 @@ body::before {
     }
 }
 
-/* Na desktopu barvy jemně přitáhneme k hero sekci */
+/* On desktop, move colors slightly closer to the hero section */
 @media (min-width: 1024px) {
     .color-section {
-        margin-top: -24px;     /* když budeš chtít víc, dej třeba -32px */
+        margin-top: -24px;    
     }
 }
 
 
-/* === Dark theme úpravy pro výběr barvy === */
+/* === Dark theme tweaks for color selection === */
 .dark-theme .color-section {
     background: #020617;
 }
@@ -892,12 +897,12 @@ body::before {
 }
 
 .dark-theme .back-to-portfolio {
-    color: #e5e7eb;          /* světle šedá – dobře čitelná */
-    border-color: #6b7280;   /* šedý okraj ladící s tmavým režimem */
+    color: #e5e7eb;          
+    border-color: #6b7280;   
 }
 
 
-/* === Animace při změně barvy hodinek === */
+/* === Animation when changing watch color === */
 
 .watch-image-animate {
     animation: watchFadeScale 0.35s ease;
@@ -914,8 +919,7 @@ body::before {
     }
 }
 
-/* === Hover efekt na cenových kartách === */
-
+/* === Hover effect on pricing cards === */
 .pricing-card {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -925,8 +929,7 @@ body::before {
     box-shadow: 0 20px 45px rgba(15,23,42,0.16);
 }
 
-/* === Fade-in při scrollu === */
-
+/* === Fade-in on scroll === */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -938,16 +941,16 @@ body::before {
     transform: translateY(0);
 }
 
-/* Pravá část hlavičky – navigace + tlačítka */
+/* Right part of header – navigation + buttons */
 .header-right {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* Základ hamburger tlačítka */
+/* Base hamburger button */
 .nav-toggle {
-    display: none; /* na desktopu schované */
+    display: none; /* Hidden on desktop */
     width: 28px;
     height: 22px;
     padding: 0;
@@ -986,7 +989,7 @@ body::before {
         box-shadow: 0 12px 30px rgba(15,23,42,0.18);
         border-radius: 12px;
         padding: 10px 16px;
-        display: none;                 /* výchozí stav – skryte menu */
+        display: none;                 /* Default state – menu hidden */
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
@@ -1004,16 +1007,16 @@ body::before {
     }
 
      .nav-toggle {
-        display: inline-flex;          /* na mobilu zobrazit */
+        display: inline-flex;          /* Show on mobile */
     }
 
-    /* Když je hlavička v režimu "otevřené menu" */
+    /* When the header is in "open menu" state */
     .site-header.nav-open .main-nav {
         display: flex;
     }
 }
 
-/* Dark mode verze hamburgeru */
+/* Dark mode version of the hamburger */
 .dark-theme .nav-toggle {
     background: #111827;
     border-color: #374151;
@@ -1040,7 +1043,7 @@ body::before {
     }
 }
 
-/* Respektuj nastavení uživatele – vypnout animace */
+/* Respect user settings – disable animations */
 @media (prefers-reduced-motion: reduce) {
     html::before,
     body::before {
@@ -1048,7 +1051,7 @@ body::before {
     }
 }
 
-/* Jemný glow efekt kolem hodinek */
+/* Subtle glow effect around the watch */
 .hero-image::before {
     content: "";
     position: absolute;
@@ -1082,7 +1085,7 @@ body::before {
     }
 }
 
-/* Uprava zobrazeni na velmi uzkych mobilech */
+/* Adjust layout for very narrow mobile screens */
 @media (max-width: 480px) {
     .back-to-portfolio {
         display: none;
