@@ -4,11 +4,7 @@
    Description: Product landing page for SmartFit One
 ================================ */
 
-/* ===============================
-   BASE / RESET
-================================ */
-
-/* Basic reset for consistent appearance */
+/* Basic reset */
 * {
     box-sizing: border-box;          
     margin: 0;
@@ -36,10 +32,6 @@ body::before {
     z-index: -1;
     pointer-events: none;
 }
-
-/* ===============================
-   HEADER & NAVIGATION
-================================ */
 
 /* HEADER - desktop */
 .site-header {
@@ -122,10 +114,6 @@ body::before {
     border-bottom-color: #111;
 }
 
-/* ===============================
-   HERO – LANDING PAGE
-================================ */
-
 /* HERO SECTION – main panel on the landing page */
 .hero-section {
     min-height: 80vh;              
@@ -136,9 +124,10 @@ body::before {
     padding: 30px 10vw 10px;       
 }
 
+
 /* Text part of the hero section */
 .hero-text h1 {
-    font-family: "Playfair Display", serif;   
+     font-family: "Playfair Display", serif;   
     font-weight: 700;
     font-size: 2.6rem;
     margin-bottom: 16px;
@@ -193,10 +182,6 @@ body::before {
     background: #eef2ff;
 }
 
-/* ===============================
-   FOOTER
-================================ */
-
 /* Footer */
 .site-footer {
     text-align: center;
@@ -250,7 +235,7 @@ body::before {
     transform: translateY(-2px);
 }
 
-/* Dark mode – footer icons */
+/* Dark mode */
 .dark-theme .footer-icon {
     fill: #9ca3af;
     stroke: #9ca3af;
@@ -261,7 +246,7 @@ body::before {
     stroke: #ffffff;
 }
 
-/* Dark theme – GitHub icon */
+/* Dark theme */
 .dark-theme .footer-github-icon {
     fill: #9ca3af;
 }
@@ -269,10 +254,6 @@ body::before {
 .dark-theme .footer-github-icon:hover {
     fill: #ffffff;
 }
-
-/* ===============================
-   GENERIC PAGE LAYOUT (SUBPAGES)
-================================ */
 
 /* General layout for subpages */
 .page {
@@ -294,10 +275,6 @@ body::before {
 .page-intro p {
     color: #4b5563;
 }
-
-/* ===============================
-   FEATURES PAGE
-================================ */
 
 /* GRID with watch features */
 .features-grid {
@@ -358,10 +335,7 @@ body::before {
     }
 }
 
-/* ===============================
-   PRICING PAGE
-================================ */
-
+/* PRICING PAGE */
 .page-pricing {
     max-width: 960px;
     margin: 0 auto;
@@ -481,10 +455,7 @@ body::before {
     }
 }
 
-/* ===============================
-   CONTACT PAGE
-================================ */
-
+/* CONTACT PAGE */
 .page-contact {
     max-width: 980px;
     margin: 0 auto;
@@ -510,6 +481,7 @@ body::before {
 }
 
 /* === Contact links styling (email + GitHub) === */
+
 .contact-info a {
     color: #1e40af;                    
     font-weight: 600;
@@ -525,6 +497,7 @@ body::before {
 }
 
 /* === Contact section – icons and links === */
+
 .contact-line {
     display: flex;
     align-items: center;
@@ -540,12 +513,13 @@ body::before {
     flex-shrink: 0;
 }
 
-/* === Dark mode – contact icons === */
+/* === Dark mode === */
+
 .dark-theme .contact-line svg {
     stroke: #93c5fd;
 }
 
-/* DARK MODE – contact links */
+/* DARK MODE */
 .dark-theme .contact-info a {
     color: #93c5fd;                    /* světle modrá */
 }
@@ -620,10 +594,6 @@ body::before {
     }
 }
 
-/* ===============================
-   SUMMARY PANEL (PRICING)
-================================ */
-
 /* Summary of selected plan */
 .pricing-summary {
     margin-top: 32px;
@@ -648,10 +618,6 @@ body::before {
     box-shadow: 0 20px 45px rgba(15,23,42,0.20);
 }
 
-/* ===============================
-   THEME TOGGLE & DARK THEME
-================================ */
-
 /* Theme toggle button */
 .theme-toggle-btn {
     margin-left: 16px;
@@ -671,11 +637,14 @@ body::before {
     background: #e5e7eb;
 }
 
-/* === DARK THEME ROOT === */
+/* === DARK THEME === */
+
 .dark-theme body {
     background: #020617;
     color: #e5e7eb;
 }
+
+
 
 .dark-theme .site-header {
     background: #020617;
@@ -789,47 +758,9 @@ body::before {
     }
 }
 
-/* Dark theme – color section */
-.dark-theme .color-section {
-    background: #020617;
-}
 
-.dark-theme .color-section h2,
-.dark-theme #selectedColorText {
-    color: #e5e7eb;
-}
+/* === Watch image in hero section – UNIFIED DEFINITION === */
 
-.dark-theme .color-option {
-    background: #020617;
-    border-color: #374151;
-    color: #e5e7eb;
-}
-
-.dark-theme .back-to-portfolio {
-    color: #e5e7eb;          
-    border-color: #6b7280;   
-}
-
-/* Dark theme – hamburger button */
-.dark-theme .nav-toggle {
-    background: #111827;
-    border-color: #374151;
-}
-
-.dark-theme .nav-toggle span {
-    background: #e5e7eb;
-}
-
-.dark-theme body::before {
-    opacity: 0.12;
-    filter: brightness(0.55) blur(2px);
-}
-
-/* ===============================
-   HERO WATCH IMAGE
-================================ */
-
-/* Watch image in hero section – unified definition */
 .watch-image {
     width: 100%;
     max-width: 340px;         /* Mobile / smaller screens */
@@ -871,11 +802,7 @@ body::before {
     }
 }
 
-/* ===============================
-   WATCH COLOR SELECTION
-================================ */
-
-/* Watch color selection section */
+/* === Watch color selection section === */
 .color-section {
     padding: 16px 10vw 40px;
     margin-top: 16px;               
@@ -952,7 +879,31 @@ body::before {
     }
 }
 
-/* Animation when changing watch color */
+
+/* === Dark theme tweaks for color selection === */
+.dark-theme .color-section {
+    background: #020617;
+}
+
+.dark-theme .color-section h2,
+.dark-theme #selectedColorText {
+    color: #e5e7eb;
+}
+
+.dark-theme .color-option {
+    background: #020617;
+    border-color: #374151;
+    color: #e5e7eb;
+}
+
+.dark-theme .back-to-portfolio {
+    color: #e5e7eb;          
+    border-color: #6b7280;   
+}
+
+
+/* === Animation when changing watch color === */
+
 .watch-image-animate {
     animation: watchFadeScale 0.35s ease;
 }
@@ -968,11 +919,7 @@ body::before {
     }
 }
 
-/* ===============================
-   HOVER & SCROLL EFFECTS
-================================ */
-
-/* Hover effect on pricing cards */
+/* === Hover effect on pricing cards === */
 .pricing-card {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -982,7 +929,7 @@ body::before {
     box-shadow: 0 20px 45px rgba(15,23,42,0.16);
 }
 
-/* Fade-in on scroll */
+/* === Fade-in on scroll === */
 .reveal {
     opacity: 0;
     transform: translateY(20px);
@@ -994,11 +941,7 @@ body::before {
     transform: translateY(0);
 }
 
-/* ===============================
-   HEADER – HAMBURGER & MOBILE NAV
-================================ */
-
-/* Right part of header – navigation + buttons (override gap) */
+/* Right part of header – navigation + buttons */
 .header-right {
     display: flex;
     align-items: center;
@@ -1063,7 +1006,7 @@ body::before {
         gap: 8px;
     }
 
-    .nav-toggle {
+     .nav-toggle {
         display: inline-flex;          /* Show on mobile */
     }
 
@@ -1073,9 +1016,20 @@ body::before {
     }
 }
 
-/* ===============================
-   BACKGROUND FLOATING EFFECT
-================================ */
+/* Dark mode version of the hamburger */
+.dark-theme .nav-toggle {
+    background: #111827;
+    border-color: #374151;
+}
+
+.dark-theme .nav-toggle span {
+    background: #e5e7eb;
+}
+
+.dark-theme body::before {
+    opacity: 0.12;
+    filter: brightness(0.55) blur(2px);
+}
 
 @keyframes bgFloat {
     0% {
@@ -1089,10 +1043,6 @@ body::before {
     }
 }
 
-/* ===============================
-   REDUCED MOTION SUPPORT
-================================ */
-
 /* Respect user settings – disable animations */
 @media (prefers-reduced-motion: reduce) {
     html::before,
@@ -1100,10 +1050,6 @@ body::before {
         animation: none !important;
     }
 }
-
-/* ===============================
-   HERO GLOW EFFECT
-================================ */
 
 /* Subtle glow effect around the watch */
 .hero-image::before {
@@ -1139,13 +1085,21 @@ body::before {
     }
 }
 
-/* ===============================
-   EXTRA – VERY NARROW MOBILE
-================================ */
-
 /* Adjust layout for very narrow mobile screens */
 @media (max-width: 480px) {
     .back-to-portfolio {
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
